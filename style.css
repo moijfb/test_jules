@@ -57,10 +57,69 @@ h1 {
     padding: 10px;
     background-color: #222;
     border-radius: 5px;
-    display: inline-block;
+    display: flex;
+    justify-content: space-around;
+    width: 800px;
     text-align: left;
 }
 
 #ui-container p {
     margin: 5px 0;
+}
+
+#turret-selection {
+    display: flex;
+    flex-direction: column;
+}
+
+.turret-choice {
+    border: 2px solid #555;
+    padding: 10px;
+    margin: 5px;
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    justify-content: space-between;
+    width: 150px;
+}
+
+.turret-choice:hover {
+    background-color: #444;
+}
+
+.turret-choice.active {
+    border-color: #00aaff;
+    background-color: #333;
+}
+
+.turret-cost {
+    color: #aaa;
+    font-style: italic;
+}
+
+#turret-info-panel {
+    border-left: 1px solid #555;
+    padding-left: 20px;
+    min-width: 200px;
+}
+
+#turret-info-panel h4 {
+    margin-top: 0;
+    color: #00aaff;
+}
+
+#next-wave-btn {
+    padding: 8px 15px;
+    font-size: 1em;
+    color: white;
+    background-color: #0077aa;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    margin-top: 10px;
+    width: 100%;
+}
+
+#next-wave-btn:hover {
+    background-color: #0099cc;
 }

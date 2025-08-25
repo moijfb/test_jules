@@ -24,10 +24,32 @@
             </div>
         </div>
         <div id="ui-container">
-            <p>Argent: <span id="money">150</span>$</p>
-            <p>Vague: <span id="wave">0</span></p>
-            <p>Vie: <span id="planet-health">1000</span></p>
-            <p>Sélection (1,2): <span id="selection">Tourelle</span></p>
+            <div id="game-stats">
+                <p>Argent: <span id="money">150</span>$</p>
+                <p>Vague: <span id="wave">0</span></p>
+                <p>Vie: <span id="planet-health">1000</span></p>
+                <button id="next-wave-btn" style="display: none;">Lancer la Vague</button>
+            </div>
+            <div id="turret-selection">
+                <p>Construire :</p>
+                <div class="turret-choice active" data-turret="Turret">
+                    <span>Tourelle</span>
+                    <span class="turret-cost">50$</span>
+                </div>
+                <div class="turret-choice" data-turret="LaserTurret">
+                    <span>Laser</span>
+                    <span class="turret-cost">120$</span>
+                </div>
+            </div>
+            <div id="turret-info-panel">
+                <h4>Informations</h4>
+                <p>Nom: <span id="info-name">-</span></p>
+                <p>Niveau: <span id="info-level">-</span></p>
+                <p>Dégâts: <span id="info-damage">-</span></p>
+                <p>Portée: <span id="info-range">-</span></p>
+                <p>Cadence: <span id="info-firerate">-</span></p>
+                <p>Coût Amélioration: <span id="info-upgrade-cost">-</span></p>
+            </div>
         </div>
     </div>
     <script src="game.js"></script>
