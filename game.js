@@ -156,7 +156,12 @@ function draw() {
     }
 }
 // --- Event Listeners ---
-window.addEventListener('keydown', (e) => { if (gameState.current === 'start_menu' || gameState.current === 'game_over') { resetGame(); } });
+let assetsAreReady = false;
+window.addEventListener('keydown', (e) => {
+    if (assetsAreReady && (gameState.current === 'start_menu' || gameState.current === 'game_over')) {
+        resetGame();
+    }
+});
 turretChoices.forEach(choice => {
     choice.addEventListener('click', () => { if(gameState.current!=='playing')return;gameState.selectedTurretType=choice.dataset.turret;gameState.selectedObject=gameState.selectedTurretType;turretChoices.forEach(c=>c.classList.remove('active'));choice.classList.add('active');updateInfoPanel(); });
 });
@@ -187,12 +192,17 @@ canvas.addEventListener('click', (e) => {
 });
 
 // --- Boucle de jeu ---
-function gameLoop(currentTime) { update(currentTime); draw(); requestAnimationFrame(gameLoop); }
+function gameLoop(currentTime) {
+    update(currentTime);
+    draw();
+    requestAnimationFrame(gameLoop);
+}
 
 // Démarrer
 gameState.current = 'start_menu';
 document.getElementById('ui-container').style.display = 'none';
 loadAssets(() => {
     console.log("Assets loaded, ready to play.");
-    // The keydown listener will start the game by calling resetGame()
+    assetsAreReady = true;
+    gameLoop(0); // Démarrer la boucle de jeu seulement quand les assets sont chargés
 });
